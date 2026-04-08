@@ -20,7 +20,7 @@
                         berpengalaman, pengerjaan rapi, serta komitmen penuh terhadap keamanan dan kualitas.
                     </p>
 
-                    <a href="#contact"
+                    <a href="https://wa.link/o3y8y8"
                         class="inline-flex items-center px-7 py-3.5 bg-primary text-white font-semibold rounded-lg hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl group">
                         Konsultasi dengan Tim Kami
                         <svg class="ml-2.5 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
@@ -47,7 +47,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                 @foreach($services as $service)
                     <div
-                        class="bg-white rounded-xl p-8 border border-gray-200 shadow-md hover:shadow-md transition-shadow group">
+                        class="bg-white rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow group">
                         <div
                             class="w-12 h-12 bg-blue-100 text-[#1F75FE] rounded-lg flex items-center justify-center mb-6  ">
                             @php

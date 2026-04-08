@@ -66,7 +66,7 @@
 
                     <!-- CTA Button -->
                     <div class="flex items-center">
-                        <a href="{{ route('home') }}#contact"
+                        <a href="https://wa.link/o3y8y8"
                             class="px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100 text-md">
                             Hubungi Kami
                         </a>

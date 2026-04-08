@@ -1,9 +1,10 @@
 <x-frontend-layout>
     <!-- Header -->
-    <div class="bg-primary pt-32 pb-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+    <div class="relative w-full bg-cover bg-center h-[412px] flex items-center justify-center" style="background-image: url('{{ asset('images/layanan-bg.png') }}');">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
             <h1 class="text-4xl font-bold mb-4">Layanan Kami</h1>
-            <p class="text-blue-100 text-lg">Solusi lengkap untuk kebutuhan instalasi dan maintenance Anda.</p>
+            <p class="text-gray-100 text-lg">Solusi lengkap untuk kebutuhan instalasi dan maintenance Anda.</p>
         </div>
     </div>
 

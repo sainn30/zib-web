@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-bold text-2xl text-gray-900 leading-tight">
-            Galeri <span class="text-gray-400 font-medium">/</span> Tambah Portofolio
+            Galeri <span class="text-gray-400 font-medium">/</span> Tambah
         </h2>
     </x-slot>
 
