@@ -16,8 +16,11 @@
 
 <body class="bg-gray-50 text-gray-800 font-sans antialiased">
     <div class="flex min-h-screen">
+        <!-- Sidebar Overlay (Mobile) -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden transition-opacity"></div>
+
         <!-- Sidebar -->
-        <aside class="w-60 bg-white border-r border-gray-200 flex flex-col justify-between fixed h-full z-10">
+        <aside id="sidebar" class="w-60 bg-white border-r border-gray-200 flex flex-col justify-between fixed h-full z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300">
             <div>
                 <!-- Logo -->
                 <div class="h-20 flex items-center px-8 border-b border-transparent mt-4">
@@ -93,11 +96,18 @@
         </aside>
 
         <!-- Main Content -->
-        <div class="flex-1 flex flex-col ml-60 bg-white">
+        <div class="flex-1 flex flex-col ml-0 md:ml-60 bg-white transition-all duration-300 w-full">
             <!-- Header -->
-            <header class="bg-white">
-                <div class="py-6 px-8 flex justify-between items-center">
-                    <h2 class="font-bold text-2xl text-gray-900">
+            <header class="bg-white border-b border-gray-100">
+                <div class="py-4 md:py-6 px-4 md:px-8 flex justify-between items-center">
+                    <div class="flex items-center gap-4">
+                        <!-- Hamburger button (Mobile) -->
+                        <button id="sidebar-toggle" class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                        <h2 class="font-bold text-xl md:text-2xl text-gray-900">
                         @if (request()->routeIs('admin.dashboard'))
                             Overview
                         @elseif (request()->routeIs('admin.services.*'))
@@ -109,10 +119,11 @@
                         @else
                             Dashboard
                         @endif
-                    </h2>
+                        </h2>
+                    </div>
                     <div class="flex items-center space-x-3">
-                        <div class="text-right">
-                            <p class="text-sm font-bold text-gray-900 leading-none">Hasan</p>
+                        <div class="hidden md:block text-right">
+                            <p class="text-sm font-bold text-gray-900 leading-none">{{ Auth::user()->name ?? 'Admin' }}</p>
                             <p class="text-xs text-gray-500">Admin</p>
                         </div>
                         <div class="h-10 w-10 bg-gray-600 rounded-full flex items-center justify-center text-white">
@@ -125,11 +136,33 @@
                 </div>
             </header>
 
-            <main class="flex-1 p-8 bg-gray-50">
+            <main class="flex-1 p-4 md:p-8 bg-gray-50 overflow-x-hidden">
                 {{ $slot }}
             </main>
         </div>
     </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            const toggleBtn = document.getElementById('sidebar-toggle');
+
+            function toggleSidebar() {
+                sidebar.classList.toggle('-translate-x-full');
+                overlay.classList.toggle('hidden');
+            }
+
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', toggleSidebar);
+            }
+
+            if (overlay) {
+                overlay.addEventListener('click', toggleSidebar);
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -8,10 +8,10 @@
         </div>
 
         <div class="relative z-10 w-full pt-20">
-            <div class="max-w-7xl mx-[6rem] sm:px-6 lg:px-8">
+            <div class="max-w-7xl px-4 md:mx-[6rem] sm:px-6 lg:px-8">
                 <div class="max-w-5xl">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-8">
-                        Solusi Instalasi dan Maintenance <br>
+                        Solusi Instalasi dan Maintenance <br class="hidden md:block">
                         Gedung yang Aman dan Profesional
                     </h1>
 
@@ -39,9 +39,9 @@
     <div id="services" class="py-24 bg-cover bg-center bg-no-repeat relative"
         style="background-image: url('{{ asset('public\images\service-bg.png') }}');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-[48px] font-bold text-black">Layanan Kami</h2>
-                <p class="text-[19px] text-black/90">Solusi lengkap untuk kebutuhan instalasi dan maintenance Anda.</p>
+            <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-[48px] font-bold text-black mb-4 md:mb-0">Layanan Kami</h2>
+                <p class="text-base md:text-[19px] text-black/90">Solusi lengkap untuk kebutuhan instalasi dan maintenance Anda.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -93,27 +93,21 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-16">
                 <div class="lg:w-1/2">
-                    <h2 class="text-[48px] font-bold text-gray-900">Kenapa Memilih</h2>
-                    <h2 class="text-[48px] font-bold text-primary mb-12">Zona Instalasi?</h2>
+                    <h2 class="text-3xl md:text-[48px] font-bold text-gray-900 leading-tight">Kenapa Memilih</h2>
+                    <h2 class="text-3xl md:text-[48px] font-bold text-primary mb-8 md:mb-12">Zona Instalasi?</h2>
 
-                    <div class="space-y-10">
-                        <div class="border-b border-gray-500 pb-8">
-                            <h3 class="text-[27px] font-bold text-gray-900 mb-2">Beroperasi secara Otomatis</h3>
-                            <p class="text-gray-600 text-[16px]">Menggunakan teknologi terkini untuk memastikan keamanan
-                                dan
-                                efisiensi operasional bangunan Anda.</p>
+                    <div class="space-y-8 md:space-y-10">
+                        <div class="border-b border-gray-500 pb-6 md:pb-8">
+                            <h3 class="text-xl md:text-[27px] font-bold text-gray-900 mb-2">Beroperasi secara Otomatis</h3>
+                            <p class="text-gray-600 text-sm md:text-[16px]">Menggunakan teknologi terkini untuk memastikan keamanan dan efisiensi operasional bangunan Anda.</p>
                         </div>
-                        <div class="border-b border-gray-500 pb-8">
-                            <h3 class="text-[27px] font-bold text-gray-900 mb-2">Sangat Efisien dan Berkelanjutan</h3>
-                            <p class="text-gray-600 text-[16px]">Solusi hemat energi yang tidak hanya mengurangi biaya
-                                operasional
-                                tapi juga ramah lingkungan.</p>
+                        <div class="border-b border-gray-500 pb-6 md:pb-8">
+                            <h3 class="text-xl md:text-[27px] font-bold text-gray-900 mb-2">Sangat Efisien dan Berkelanjutan</h3>
+                            <p class="text-gray-600 text-sm md:text-[16px]">Solusi hemat energi yang tidak hanya mengurangi biaya operasional tapi juga ramah lingkungan.</p>
                         </div>
                         <div>
-                            <h3 class="text-[27px] font-bold text-gray-900 mb-2">Terintegrasi Sepenuhnya</h3>
-                            <p class="text-gray-600 text-[16px]">Semua sistem listrik dan pemipaan terintegrasi untuk
-                                kemudahan
-                                pemantauan dan maintenance.</p>
+                            <h3 class="text-xl md:text-[27px] font-bold text-gray-900 mb-2">Terintegrasi Sepenuhnya</h3>
+                            <p class="text-gray-600 text-sm md:text-[16px]">Semua sistem listrik dan pemipaan terintegrasi untuk kemudahan pemantauan dan maintenance.</p>
                         </div>
                     </div>
                 </div>
@@ -130,18 +124,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
                 <div class="lg:w-1/2">
-                    <h2 class="text-[48px] font-bold text-gray-900 mb-6">Tentang Kami</h2>
-                    <p class="text-[25px] text-gray-500 leading-relaxed mb-6">
-                        <span class="text-[27px] font-bold text-gray-900">Zona Instalasi Bandung</span> adalah
-                        perwujudan nyata
-                        usaha yang telah melewati proses panjang di dalam dunia instalasi elektrikal dan plumbing
-                        sebagai core unit usaha yang senantiasa dijalankan selama lebih dari 20 tahun pengalaman,
-                        menjaga integritas komitmen dalam pemberian pelayanan terbaik dengan progress meluaskan hal yang
-                        mutlak kami lakukan untuk menjadi pelopor di setiap project.
+                    <h2 class="text-3xl md:text-[48px] font-bold text-gray-900 mb-6">Tentang Kami</h2>
+                    <p class="text-lg md:text-[25px] text-gray-500 leading-relaxed mb-6">
+                        <span class="text-xl md:text-[27px] font-bold text-gray-900">Zona Instalasi Bandung</span> adalah perwujudan nyata usaha yang telah melewati proses panjang di dalam dunia instalasi elektrikal dan plumbing sebagai core unit usaha yang senantiasa dijalankan selama lebih dari 20 tahun pengalaman, menjaga integritas komitmen dalam pemberian pelayanan terbaik dengan progress meluaskan hal yang mutlak kami lakukan untuk menjadi pelopor di setiap project.
                     </p>
                 </div>
                 <div class="lg:w-1/2">
-                    <img class="rounded-2xl shadow-xl w-full object-cover h-[410px]"
+                    <img class="rounded-2xl shadow-xl w-full object-cover h-64 md:h-[410px]"
                         src="{{ asset('images/about.png') }}" alt="About Us">
                 </div>
             </div>
@@ -151,8 +140,8 @@
     <!-- Clients Section -->
     <div id="clients" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-[48px] font-bold text-gray-900">Klien & Mitra Kami</h2>
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-[48px] font-bold text-gray-900">Klien & Mitra Kami</h2>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 items-center ">
@@ -188,8 +177,8 @@
     <!-- Gallery Section -->
     <div id="gallery" class="py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-[100px]">
-                <h2 class="text-[48px] font-bold text-gray-900">Galeri Kami</h2>
+            <div class="text-center mb-12 md:mb-[100px]">
+                <h2 class="text-3xl md:text-[48px] font-bold text-gray-900">Galeri Kami</h2>
             </div>
 
             <!-- Swiper Container Wrapper -->
@@ -215,14 +204,14 @@
 
                 <!-- Custom Navigation Buttons -->
                 <button
-                    class="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center text-gray-800 hover:text-primary transition-colors">
+                    class="hidden md:flex swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center text-gray-800 hover:text-primary transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="w-8 h-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                     </svg>
                 </button>
                 <button
-                    class="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center text-gray-800 hover:text-primary transition-colors">
+                    class="hidden md:flex swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center text-gray-800 hover:text-primary transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="w-8 h-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />

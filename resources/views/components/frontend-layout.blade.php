@@ -42,7 +42,7 @@
                 </div>
 
                 <!-- Right Side: Menu + CTA -->
-                <div class="hidden md:flex items-center gap-8">
+                <div class="hidden lg:flex items-center gap-4 xl:gap-8">
                     <!-- Desktop Menu -->
                     <div class="flex space-x-1 items-center">
                         <a href="{{ route('home') }}" class="nav-link px-4 py-2 font-medium text-md transition-colors"
@@ -72,20 +72,32 @@
                         </a>
                     </div>
                 </div>
+                <!-- Mobile menu button -->
+                <div class="flex items-center lg:hidden">
+                    <button type="button" id="mobile-btn"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-
-            <!-- Mobile menu button -->
-            <div class="-mr-2 flex items-center md:hidden">
-                <button type="button"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none"
-                    aria-controls="mobile-menu" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
+            
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="hidden lg:hidden mt-4 pt-4 border-t border-gray-100 flex-col space-y-2">
+                <a href="{{ route('home') }}" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="home">Beranda</a>
+                <a href="{{ route('services') }}" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="services">Layanan</a>
+                <a href="{{ route('home') }}#keunggulan" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="keunggulan">Keunggulan</a>
+                <a href="{{ route('home') }}#about" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="about">Tentang</a>
+                <a href="{{ route('home') }}#clients" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="clients">Klien</a>
+                <a href="{{ route('home') }}#gallery" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="gallery">Galeri</a>
+                <a href="https://wa.link/o3y8y8" class="block w-full text-center mt-2 px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100">
+                    Hubungi Kami
+                </a>
             </div>
         </nav>
     </div>
@@ -227,8 +239,55 @@
                     setActive(link);
                 });
             });
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenu.classList.toggle('flex');
+                });
+            }
+
+            // Also attach active status logic to mobile nav links
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            
+            function setActiveMobile(targetLink) {
+                mobileNavLinks.forEach(link => {
+                    link.classList.remove('text-primary', 'font-bold', 'bg-blue-50');
+                    link.classList.add('text-gray-600', 'font-medium');
+                });
+                if (targetLink) {
+                    targetLink.classList.remove('text-gray-600', 'font-medium');
+                    targetLink.classList.add('text-primary', 'font-bold', 'bg-blue-50');
+                }
+            }
+            
+            if (currentPath.includes('/layanan')) {
+                setActiveMobile(document.querySelector('a.mobile-nav-link[data-target="services"]'));
+            } else if (currentPath === '/' || currentPath === '') {
+                if (currentHash) {
+                    const hashTarget = currentHash.replace('#', '');
+                    const link = document.querySelector(`a.mobile-nav-link[data-target="${hashTarget}"]`);
+                    if (link) setActiveMobile(link);
+                } else {
+                    setActiveMobile(document.querySelector('a.mobile-nav-link[data-target="home"]'));
+                }
+            }
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    setActiveMobile(link);
+                    // Close menu on click
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                });
+            });
+
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 
