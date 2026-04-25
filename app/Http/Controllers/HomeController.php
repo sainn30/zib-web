@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
         $profile = CompanyProfile::first();
-        $services = Service::latest()->take(3)->get(); // Limit to 3 for home
+        $services = Service::oldest()->take(3)->get(); // Limit to 3 for home
         $portfolios = Portfolio::latest()->take(6)->get();
 
         return view('home', compact('profile', 'services', 'portfolios'));

@@ -39,35 +39,45 @@
     <div id="services" class="py-24 bg-cover bg-center bg-no-repeat relative"
         style="background-image: url('{{ asset('public\images\service-bg.png') }}');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 class="text-3xl md:text-[48px] font-bold text-black mb-4 md:mb-0">Layanan Kami</h2>
-                <p class="text-base md:text-[19px] text-black/90">Solusi lengkap untuk kebutuhan instalasi dan maintenance Anda.</p>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-[48px] font-bold text-black">Layanan Kami</h2>
+                <p class="text-[19px] text-black/90">Solusi lengkap untuk kebutuhan instalasi dan maintenance Anda.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                 @foreach($services as $service)
                     <div
-                        class="bg-white rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow group">
+                        class="bg-white rounded-xl p-8 border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 group">
+
+                        {{-- Wrapper Ikon dengan efek hover --}}
                         <div
-                            class="w-12 h-12 bg-blue-100 text-[#1F75FE] rounded-lg flex items-center justify-center mb-6  ">
+                            class="w-12 h-12 bg-blue-100 text-[#1F75FE] rounded-lg flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-[#1F75FE] group-hover:text-white">
                             @php
                                 $iconPath = public_path('icon/' . $service->icon);
+                                $svgContent = '';
+                                if (file_exists($iconPath)) {
+                                    $svgContent = file_get_contents($iconPath);
+                                    $svgContent = str_replace(['#000', '#000000', 'black'], 'currentColor', $svgContent);
+                                }
                             @endphp
 
-                            @if(file_exists($iconPath))
-                                <div class="w-6 h-6 [&>svg]:w-full [&>svg]:h-full  [&>svg]:stroke-current">
-                                    {!! str_replace(['fill="black"', 'stroke="black"'], ['fill="currentColor"', 'stroke="currentColor"'], file_get_contents($iconPath)) !!}
+                            @if($svgContent)
+                                <div class="w-6 h-6 [&>svg]:w-full [&>svg]:h-full">
+                                    {!! $svgContent !!}
                                 </div>
                             @else
                                 <img src="{{ asset('icon/' . $service->icon) }}" class="w-6 h-6 object-contain" alt="">
                             @endif
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">{{ $service->title }}</h3>
-                        <p class="text-gray-500 mb-6 leading-relaxed line-clamp-3">
+
+                        <h3 class="text-[22px] font-bold text-gray-900 mb-3">{{ $service->title }}</h3>
+                        <p class="text-gray-500 mb-6 leading-relaxed text-lg">
                             {{ $service->description }}
                         </p>
+
+                        {{-- Link "Pelajari lebih lanjut" dengan transisi --}}
                         <a href="{{ route('services') }}"
-                            class="inline-flex items-center text-primary font-semibold text-blue-700 underline-offset-4 hover:underline">
+                            class="inline-flex items-center font-semibold text-blue-700 underline-offset-4 hover:underline transition-all duration-300 group-hover:translate-x-1">
                             Pelajari lebih lanjut
                             <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4"
@@ -138,37 +148,45 @@
     </div>
 
     <!-- Clients Section -->
-    <div id="clients" class="py-24 bg-white">
+    <div id="clients" class="py-24 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-3xl md:text-[48px] font-bold text-gray-900">Klien & Mitra Kami</h2>
+            <div class="text-center mb-16">
+                <h2 class="text-[36px] font-bold text-gray-900">Klien & Mitra Kami</h2>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 items-center ">
-                <!-- Logos -->
-                <div class="flex justify-center p-4">
-                    <img class="h-17 object-contain" src="{{ asset('images/logo/kai.png') }}" alt="KAI">
-                </div>
-                <div class="flex justify-center p-4">
-                    <img class="h-17 object-contain" src="{{ asset('images/logo/xl.png') }}" alt="XL Axiata">
-                </div>
-                <div class="flex justify-center p-4">
-                    <img class="h-17 object-contain" src="{{ asset('images/logo/telkomsel.png') }}" alt="Telkomsel">
-                </div>
-                <div class="flex justify-center p-4">
-                    <img class="h-17 object-contain" src="{{ asset('images/logo/epcon.png') }}" alt="EPCON">
-                </div>
-                <div class="flex justify-center p-4">
-                    <img class="h-17 object-contain" src="{{ asset('images/logo/dapra.png') }}" alt="Dapra">
-                </div>
-                <div class="flex justify-center p-4">
-                    <img class="h-17 object-contain" src="{{ asset('images/logo/sarana.png') }}" alt="Sarana">
-                </div>
-                <div class="flex justify-center p-4">
-                    <img class="h-17 object-contain" src="{{ asset('images/logo/inovindo.png') }}" alt="Inovindo">
-                </div>
-                <div class="flex justify-center p-4">
-                    <img class="h-17 object-contain" src="{{ asset('images/logo/draco.png') }}" alt="Darco">
+            {{-- Area Slider --}}
+            <div class="marquee-container overflow-hidden relative cursor-pointer">
+                <div class="animate-marquee items-center gap-20 py-4">
+
+                    @php
+                        $logos = [
+                            ['src' => 'kai.png', 'alt' => 'KAI'],
+                            ['src' => 'xl.png', 'alt' => 'XL Axiata'],
+                            ['src' => 'telkomsel.png', 'alt' => 'Telkomsel'],
+                            ['src' => 'epcon.png', 'alt' => 'EPCON'],
+                            ['src' => 'dapra.png', 'alt' => 'Dapra'],
+                            ['src' => 'sarana.png', 'alt' => 'Sarana'],
+                            ['src' => 'inovindo.png', 'alt' => 'Inovindo'],
+                            ['src' => 'draco.png', 'alt' => 'Darco'],
+                        ];
+                    @endphp
+
+                    {{-- Set 1 --}}
+                    <div class="flex items-center gap-20">
+                        @foreach($logos as $logo)
+                            <img class=" h-20 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                                src="{{ asset('images/logo/' . $logo['src']) }}" alt="{{ $logo['alt'] }}">
+                        @endforeach
+                    </div>
+
+                    {{-- Set 2 (Duplikat agar tidak putus) --}}
+                    <div class="flex items-center gap-20">
+                        @foreach($logos as $logo)
+                            <img class="h-20 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                                src="{{ asset('images/logo/' . $logo['src']) }}" alt="{{ $logo['alt'] }}">
+                        @endforeach
+                    </div>
+
                 </div>
             </div>
         </div>

@@ -24,6 +24,29 @@
             }
         }
     </script>
+    <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            /* Mengikuti panjang konten logo */
+            animation: marquee 20s linear infinite;
+        }
+
+        /* Berhenti HANYA saat container atau logo di-hover */
+        .marquee-container:hover .animate-marquee {
+            animation-play-state: paused;
+        }
+    </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
@@ -45,28 +68,28 @@
                 <div class="hidden lg:flex items-center gap-4 xl:gap-8">
                     <!-- Desktop Menu -->
                     <div class="flex space-x-1 items-center">
-                        <a href="{{ route('home') }}" class="nav-link px-4 py-2 font-medium text-md transition-colors"
+                        <a href="{{ route('home') }}" class="nav-link px-4 py-2 font-medium text-lg transition-colors"
                             data-target="home">Beranda</a>
                         <a href="{{ route('services') }}"
-                            class="nav-link px-4 py-2 font-medium text-md transition-colors"
+                            class="nav-link px-4 py-2 font-medium text-lg transition-colors"
                             data-target="services">Layanan</a>
                         <a href="{{ route('home') }}#keunggulan"
-                            class="nav-link px-4 py-2 font-medium text-md transition-colors"
+                            class="nav-link px-4 py-2 font-medium text-lg transition-colors"
                             data-target="keunggulan">Keunggulan</a>
                         <a href="{{ route('home') }}#about"
-                            class="nav-link px-4 py-2 font-medium text-md transition-colors"
+                            class="nav-link px-4 py-2 font-medium text-lg transition-colors"
                             data-target="about">Tentang</a>
                         <a href="{{ route('home') }}#clients"
-                            class="nav-link px-4 py-2 font-medium text-md transition-colors"
+                            class="nav-link px-4 py-2 font-medium text-lg transition-colors"
                             data-target="clients">Klien</a>
                         <a href="{{ route('home') }}#gallery"
-                            class="nav-link px-4 py-2 font-medium text-md transition-colors"
+                            class="nav-link px-4 py-2 font-medium text-lg transition-colors"
                             data-target="gallery">Galeri</a>
                     </div>
 
                     <!-- CTA Button -->
                     <div class="flex items-center">
-                        <a href="wa.link/2stl29"
+                        <a href="https://wa.link/2stl29"
                             class="px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100 text-md">
                             Hubungi Kami
                         </a>
@@ -95,7 +118,7 @@
                 <a href="{{ route('home') }}#about" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="about">Tentang</a>
                 <a href="{{ route('home') }}#clients" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="clients">Klien</a>
                 <a href="{{ route('home') }}#gallery" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="gallery">Galeri</a>
-                <a href="wa.link/2stl29" class="block w-full text-center mt-2 px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100">
+                <a href="https://wa.link/2stl29" class="block w-full text-center mt-2 px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100">
                     Hubungi Kami
                 </a>
             </div>
