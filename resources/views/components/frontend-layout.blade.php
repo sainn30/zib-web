@@ -66,7 +66,7 @@
 
                     <!-- CTA Button -->
                     <div class="flex items-center">
-                        <a href="https://wa.link/o3y8y8"
+                        <a href="wa.link/2stl29"
                             class="px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100 text-md">
                             Hubungi Kami
                         </a>
@@ -95,7 +95,7 @@
                 <a href="{{ route('home') }}#about" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="about">Tentang</a>
                 <a href="{{ route('home') }}#clients" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="clients">Klien</a>
                 <a href="{{ route('home') }}#gallery" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="gallery">Galeri</a>
-                <a href="https://wa.link/o3y8y8" class="block w-full text-center mt-2 px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100">
+                <a href="wa.link/2stl29" class="block w-full text-center mt-2 px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100">
                     Hubungi Kami
                 </a>
             </div>
@@ -154,7 +154,7 @@
                                         d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
                                     </path>
                                 </svg>
-                                <span>+62 821-2054-1517</span>
+                                <span>+62 817-204-182</span>
                             </li>
                             <li class="flex items-start">
                                 <svg class="w-5 h-5 text-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor"
@@ -175,8 +175,7 @@
                                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
                                 <span>
-                                    Jl. Taman Kopo Indah I No. 60
-                                    Bandung, Jawa Barat
+                                    Jl. Batusari Komp. Buana Citra Ciwastra No. B22 RT 06 RW 01
                                 </span>
                             </li>
                         </ul>
