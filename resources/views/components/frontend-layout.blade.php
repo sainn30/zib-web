@@ -53,76 +53,92 @@
 <body class="font-sans antialiased text-gray-800 bg-white">
 
     <!-- Navbar -->
-    <div class="fixed w-full z-50 top-6 px-4">
-        <nav class="max-w-7xl mx-auto bg-white rounded-2xl shadow-lg border border-gray-100/50 pl-6 pr-4 py-4 md:py-3 transition-all duration-300"
-            id="navbar">
-            <div class="flex justify-between items-center">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
-                        <img class="h-10 w-auto" src="{{ asset('images/logo.png') }}" alt="Zona Instalasi Bandung">
-                    </a>
-                </div>
-
-                <!-- Right Side: Menu + CTA -->
-                <div class="hidden lg:flex items-center gap-4 xl:gap-8">
-                    <!-- Desktop Menu -->
-                    <div class="flex space-x-1 items-center">
-                        <a href="{{ route('home') }}" class="nav-link px-4 py-2 font-medium text-lg transition-colors"
-                            data-target="home">Beranda</a>
-                        <a href="{{ route('services') }}"
-                            class="nav-link px-4 py-2 font-medium text-lg transition-colors"
-                            data-target="services">Layanan</a>
-                        <a href="{{ route('home') }}#keunggulan"
-                            class="nav-link px-4 py-2 font-medium text-lg transition-colors"
-                            data-target="keunggulan">Keunggulan</a>
-                        <a href="{{ route('home') }}#about"
-                            class="nav-link px-4 py-2 font-medium text-lg transition-colors"
-                            data-target="about">Tentang</a>
-                        <a href="{{ route('home') }}#clients"
-                            class="nav-link px-4 py-2 font-medium text-lg transition-colors"
-                            data-target="clients">Klien</a>
-                        <a href="{{ route('home') }}#gallery"
-                            class="nav-link px-4 py-2 font-medium text-lg transition-colors"
-                            data-target="gallery">Galeri</a>
-                    </div>
-
-                    <!-- CTA Button -->
-                    <div class="flex items-center">
-                        <a href="https://wa.link/2stl29"
-                            class="px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100 text-md">
-                            Hubungi Kami
+    <div class="fixed w-full z-50 top-6 left-0 right-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="max-w-7xl mx-auto bg-white rounded-2xl shadow-lg border border-gray-100/50 pl-6 pr-4 py-4 md:py-3 transition-all duration-300"
+                id="navbar">
+                <div class="flex justify-between items-center">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="{{ route('home') }}">
+                            <img class="h-10 w-auto" src="{{ asset('images/logo.png') }}" alt="Zona Instalasi Bandung">
                         </a>
                     </div>
+
+                    <!-- Right Side: Menu + CTA -->
+                    <div class="hidden lg:flex items-center gap-4 xl:gap-8">
+                        <!-- Desktop Menu -->
+                        <div class="flex space-x-1 items-center">
+                            <a href="{{ route('home') }}"
+                                class="nav-link px-4 py-2 font-medium text-lg transition-colors"
+                                data-target="home">Beranda</a>
+                            <a href="{{ route('services') }}"
+                                class="nav-link px-4 py-2 font-medium text-lg transition-colors"
+                                data-target="services">Layanan</a>
+                            <a href="{{ route('home') }}#keunggulan"
+                                class="nav-link px-4 py-2 font-medium text-lg transition-colors"
+                                data-target="keunggulan">Keunggulan</a>
+                            <a href="{{ route('home') }}#about"
+                                class="nav-link px-4 py-2 font-medium text-lg transition-colors"
+                                data-target="about">Tentang</a>
+                            <a href="{{ route('home') }}#clients"
+                                class="nav-link px-4 py-2 font-medium text-lg transition-colors"
+                                data-target="clients">Klien</a>
+                            <a href="{{ route('home') }}#gallery"
+                                class="nav-link px-4 py-2 font-medium text-lg transition-colors"
+                                data-target="gallery">Galeri</a>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <div class="flex items-center">
+                            <a href="https://wa.link/2stl29"
+                                class="px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100 text-md">
+                                Hubungi Kami
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <div class="flex items-center lg:hidden">
+                        <button type="button" id="mobile-btn"
+                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none"
+                            aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="block h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-                <!-- Mobile menu button -->
-                <div class="flex items-center lg:hidden">
-                    <button type="button" id="mobile-btn"
-                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none"
-                        aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="block h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
+
+                <!-- Mobile Menu Dropdown -->
+                <div id="mobile-menu" class="hidden lg:hidden mt-4 pt-4 border-t border-gray-100 flex-col space-y-2">
+                    <a href="{{ route('home') }}"
+                        class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+                        data-target="home">Beranda</a>
+                    <a href="{{ route('services') }}"
+                        class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+                        data-target="services">Layanan</a>
+                    <a href="{{ route('home') }}#keunggulan"
+                        class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+                        data-target="keunggulan">Keunggulan</a>
+                    <a href="{{ route('home') }}#about"
+                        class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+                        data-target="about">Tentang</a>
+                    <a href="{{ route('home') }}#clients"
+                        class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+                        data-target="clients">Klien</a>
+                    <a href="{{ route('home') }}#gallery"
+                        class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+                        data-target="gallery">Galeri</a>
+                    <a href="https://wa.link/2stl29"
+                        class="block w-full text-center mt-2 px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100">
+                        Hubungi Kami
+                    </a>
                 </div>
-            </div>
-            
-            <!-- Mobile Menu Dropdown -->
-            <div id="mobile-menu" class="hidden lg:hidden mt-4 pt-4 border-t border-gray-100 flex-col space-y-2">
-                <a href="{{ route('home') }}" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="home">Beranda</a>
-                <a href="{{ route('services') }}" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="services">Layanan</a>
-                <a href="{{ route('home') }}#keunggulan" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="keunggulan">Keunggulan</a>
-                <a href="{{ route('home') }}#about" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="about">Tentang</a>
-                <a href="{{ route('home') }}#clients" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="clients">Klien</a>
-                <a href="{{ route('home') }}#gallery" class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" data-target="gallery">Galeri</a>
-                <a href="https://wa.link/2stl29" class="block w-full text-center mt-2 px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100">
-                    Hubungi Kami
-                </a>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </div>
 
     <!-- Page Content -->
