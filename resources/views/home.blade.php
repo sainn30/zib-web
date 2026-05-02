@@ -1,27 +1,27 @@
 <x-frontend-layout>
     <!-- Hero Section -->
     <div class="relative bg-dark min-h-screen flex items-center">
-        <!-- Background Image -->
         <div class="absolute inset-0 z-0">
+            {{-- Gunakan overlay yang sedikit lebih gelap (bg-black/50) agar teks putih lebih mudah dibaca --}}
             <img class="w-full h-full object-cover" src="{{ asset('images/hero-section.png') }}" alt="Hero Background">
-            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="absolute inset-0 bg-black/50"></div>
         </div>
 
         <div class="relative z-10 w-full pt-20">
-            <div class="max-w-7xl px-4 md:mx-[6rem] sm:px-6 lg:px-8">
-                <div class="max-w-5xl">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-8">
-                        Solusi Instalasi dan Maintenance <br class="hidden md:block">
-                        Gedung yang Aman dan Profesional
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="max-w-6xl"> {{-- Membatasi lebar teks agar tidak terlalu panjang ke kanan --}}
+                    <h1 class="text-4xl md:text-2xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-8">
+                        Solusi Instalasi dan Maintenance <br> Gedung yang Aman dan Profesional
                     </h1>
 
-                    <p class="text-base md:text-lg text-gray-300 mb-10 leading-relaxed max-w-2xl opacity-90">
+                    <p class="text-lg md:text-md text-gray-200 mb-10 leading-relaxed max-w-4xl">
                         Zona Instalasi Bandung melayani instalasi listrik, AC, dan sistem gedung dengan tenaga ahli
                         berpengalaman, pengerjaan rapi, serta komitmen penuh terhadap keamanan dan kualitas.
                     </p>
 
                     <a href="https://wa.link/o3y8y8"
-                        class="inline-flex items-center px-7 py-3.5 bg-primary text-white font-semibold rounded-lg hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl group">
+                        class="inline-flex items-center px-8 py-4 bg-[#1F75FE] text-white font-semibold rounded-lg hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl group">
                         Konsultasi dengan Tim Kami
                         <svg class="ml-2.5 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
