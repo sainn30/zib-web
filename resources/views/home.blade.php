@@ -47,7 +47,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                 @foreach($services as $service)
                     <div
-                        class="bg-white rounded-xl p-8 border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 group">
+                        class="bg-white rounded-xl p-8 border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
 
                         {{-- Wrapper Ikon dengan efek hover --}}
                         <div
