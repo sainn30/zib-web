@@ -7,15 +7,17 @@
     <title>{{ config('app.name', 'Zona Instalasi Bandung') }}</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700,800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#2563eb', // Blue 600
-                        secondary: '#1e40af', // Blue 800
-                        dark: '#111827', // Gray 900
+                        primary: '#2563eb',
+                        secondary: '#1e40af',
+                        dark: '#111827',
                     },
                     fontFamily: {
                         sans: ['Figtree', 'sans-serif'],
@@ -38,13 +40,26 @@
         .animate-marquee {
             display: flex;
             width: max-content;
-            /* Mengikuti panjang konten logo */
             animation: marquee 20s linear infinite;
         }
 
-        /* Berhenti HANYA saat container atau logo di-hover */
         .marquee-container:hover .animate-marquee {
             animation-play-state: paused;
+        }
+
+        /* ── Navbar blur (sama doc1) ── */
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* ── Mobile drawer ── */
+        #mobile-menu {
+            display: none;
+        }
+
+        #mobile-menu.open {
+            display: flex;
         }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -52,94 +67,115 @@
 
 <body class="font-sans antialiased text-gray-800 bg-white">
 
-    <!-- Navbar -->
-    <div class="fixed w-full z-50 top-6 left-0 right-0">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="max-w-7xl mx-auto bg-white rounded-2xl shadow-lg border border-gray-100/50 pl-6 pr-4 py-4 md:py-3 transition-all duration-300"
-                id="navbar">
-                <div class="flex justify-between items-center">
-                    <!-- Logo -->
-                    <div class="flex-shrink-0 flex items-center">
-                        <a href="{{ route('home') }}">
-                            <img class="h-10 w-auto" src="{{ asset('images/logo.png') }}" alt="Zona Instalasi Bandung">
-                        </a>
-                    </div>
+    {{-- ================================================================ --}}
+    {{-- NAVBAR — UI sama persis doc1 (frosted glass, full-width, h-20) --}}
+    {{-- ================================================================ --}}
+    <header class="fixed top-0 w-full z-50 bg-white/80 nav-blur border-b border-slate-200/50 shadow-xl"
+        style="box-shadow: 0 20px 40px rgba(15,76,129,0.05);">
+        <div class="max-w-[1280px] mx-auto flex justify-between items-center px-8 h-20">
 
-                    <!-- Right Side: Menu + CTA -->
-                    <div class="hidden lg:flex items-center gap-4 xl:gap-8">
-                        <!-- Desktop Menu -->
-                        <div class="flex space-x-1 items-center">
-                            <a href="{{ route('home') }}"
-                                class="nav-link px-4 py-2 font-medium text-lg transition-colors"
-                                data-target="home">Beranda</a>
-                            <a href="{{ route('services') }}"
-                                class="nav-link px-4 py-2 font-medium text-lg transition-colors"
-                                data-target="services">Layanan</a>
-                            <a href="{{ route('home') }}#keunggulan"
-                                class="nav-link px-4 py-2 font-medium text-lg transition-colors"
-                                data-target="keunggulan">Keunggulan</a>
-                            <a href="{{ route('home') }}#about"
-                                class="nav-link px-4 py-2 font-medium text-lg transition-colors"
-                                data-target="about">Tentang</a>
-                            <a href="{{ route('home') }}#clients"
-                                class="nav-link px-4 py-2 font-medium text-lg transition-colors"
-                                data-target="clients">Klien</a>
-                            <a href="{{ route('home') }}#gallery"
-                                class="nav-link px-4 py-2 font-medium text-lg transition-colors"
-                                data-target="gallery">Galeri</a>
-                        </div>
+            {{-- Logo / Brand (sama doc1: teks uppercase bold biru) --}}
+            <a href="{{ route('home') }}"
+                style="font-family:'Manrope',sans-serif;font-size:1.1rem;font-weight:900;color:#0F4C81;letter-spacing:-0.05em;text-transform:uppercase;text-decoration:none;">
+                Zona Instalasi Bandung
+            </a>
 
-                        <!-- CTA Button -->
-                        <div class="flex items-center">
-                            <a href="https://wa.link/2stl29"
-                                class="px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100 text-md">
-                                Hubungi Kami
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Mobile menu button -->
-                    <div class="flex items-center lg:hidden">
-                        <button type="button" id="mobile-btn"
-                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none"
-                            aria-controls="mobile-menu" aria-expanded="false">
-                            <span class="sr-only">Open main menu</span>
-                            <svg class="block h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Mobile Menu Dropdown -->
-                <div id="mobile-menu" class="hidden lg:hidden mt-4 pt-4 border-t border-gray-100 flex-col space-y-2">
-                    <a href="{{ route('home') }}"
-                        class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
-                        data-target="home">Beranda</a>
-                    <a href="{{ route('services') }}"
-                        class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
-                        data-target="services">Layanan</a>
-                    <a href="{{ route('home') }}#keunggulan"
-                        class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
-                        data-target="keunggulan">Keunggulan</a>
-                    <a href="{{ route('home') }}#about"
-                        class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
-                        data-target="about">Tentang</a>
-                    <a href="{{ route('home') }}#clients"
-                        class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
-                        data-target="clients">Klien</a>
-                    <a href="{{ route('home') }}#gallery"
-                        class="mobile-nav-link block px-4 py-2 font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
-                        data-target="gallery">Galeri</a>
-                    <a href="https://wa.link/2stl29"
-                        class="block w-full text-center mt-2 px-6 py-2.5 bg-blue-50 text-primary font-semibold rounded-lg hover:bg-blue-100 transition-all text-md shadow-sm ring-1 ring-blue-100">
-                        Hubungi Kami
-                    </a>
-                </div>
+            {{-- Desktop Nav (sama doc1) --}}
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="{{ route('home') }}" class="nav-link" data-target="home"
+                    style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.05em;color:#475569;text-decoration:none;transition:color 0.2s;"
+                    onmouseenter="this.style.color='#0F4C81';"
+                    onmouseleave="if(!this.classList.contains('nav-active'))this.style.color='#475569';">
+                    Beranda
+                </a>
+                <a href="{{ route('services') }}" class="nav-link" data-target="services"
+                    style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.05em;color:#475569;text-decoration:none;transition:color 0.2s;"
+                    onmouseenter="this.style.color='#0F4C81';"
+                    onmouseleave="if(!this.classList.contains('nav-active'))this.style.color='#475569';">
+                    Layanan
+                </a>
+                <a href="{{ route('home') }}#keunggulan" class="nav-link" data-target="keunggulan"
+                    style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.05em;color:#475569;text-decoration:none;transition:color 0.2s;"
+                    onmouseenter="this.style.color='#0F4C81';"
+                    onmouseleave="if(!this.classList.contains('nav-active'))this.style.color='#475569';">
+                    Keunggulan
+                </a>
+                <a href="{{ route('home') }}#about" class="nav-link" data-target="about"
+                    style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.05em;color:#475569;text-decoration:none;transition:color 0.2s;"
+                    onmouseenter="this.style.color='#0F4C81';"
+                    onmouseleave="if(!this.classList.contains('nav-active'))this.style.color='#475569';">
+                    Tentang
+                </a>
+                <a href="{{ route('home') }}#clients" class="nav-link" data-target="clients"
+                    style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.05em;color:#475569;text-decoration:none;transition:color 0.2s;"
+                    onmouseenter="this.style.color='#0F4C81';"
+                    onmouseleave="if(!this.classList.contains('nav-active'))this.style.color='#475569';">
+                    Klien
+                </a>
+                <a href="{{ route('home') }}#gallery" class="nav-link" data-target="gallery"
+                    style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.05em;color:#475569;text-decoration:none;transition:color 0.2s;"
+                    onmouseenter="this.style.color='#0F4C81';"
+                    onmouseleave="if(!this.classList.contains('nav-active'))this.style.color='#475569';">
+                    Galeri
+                </a>
             </nav>
+
+            {{-- CTA + Mobile toggle --}}
+            <div class="flex items-center gap-4">
+                {{-- CTA Button (sama doc1: bg biru gelap) --}}
+                <a href="https://wa.link/2stl29"
+                    style="font-family:'Manrope',sans-serif;background:#0F4C81;color:#fff;padding:10px 24px;border-radius:8px;font-size:0.875rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;box-shadow:0 8px 20px rgba(15,76,129,0.2);transition:all 0.3s;transform:scale(0.97);"
+                    onmouseenter="this.style.background='#00355f';this.style.transform='scale(1)';"
+                    onmouseleave="this.style.background='#0F4C81';this.style.transform='scale(0.97)';">
+                    Hubungi Kami
+                </a>
+
+                {{-- Mobile hamburger --}}
+                <button type="button" id="mobile-btn"
+                    class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-slate-700 hover:bg-slate-100 transition-colors focus:outline-none">
+                    <span class="sr-only">Open menu</span>
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
         </div>
-    </div>
+
+        {{-- Mobile Menu Dropdown --}}
+        <div id="mobile-menu"
+            style="flex-direction:column;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-top:1px solid rgba(226,232,240,0.5);padding:16px 32px 24px;">
+            <a href="{{ route('home') }}" class="mobile-nav-link" data-target="home"
+                style="display:block;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:600;color:#475569;padding:10px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s;">
+                Beranda
+            </a>
+            <a href="{{ route('services') }}" class="mobile-nav-link" data-target="services"
+                style="display:block;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:600;color:#475569;padding:10px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s;">
+                Layanan
+            </a>
+            <a href="{{ route('home') }}#keunggulan" class="mobile-nav-link" data-target="keunggulan"
+                style="display:block;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:600;color:#475569;padding:10px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s;">
+                Keunggulan
+            </a>
+            <a href="{{ route('home') }}#about" class="mobile-nav-link" data-target="about"
+                style="display:block;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:600;color:#475569;padding:10px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s;">
+                Tentang
+            </a>
+            <a href="{{ route('home') }}#clients" class="mobile-nav-link" data-target="clients"
+                style="display:block;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:600;color:#475569;padding:10px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s;">
+                Klien
+            </a>
+            <a href="{{ route('home') }}#gallery" class="mobile-nav-link" data-target="gallery"
+                style="display:block;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:600;color:#475569;padding:10px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s;">
+                Galeri
+            </a>
+            <a href="https://wa.link/2stl29"
+                style="display:block;margin-top:8px;text-align:center;background:#0F4C81;color:#fff;padding:12px 24px;border-radius:8px;font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;">
+                Hubungi Kami
+            </a>
+        </div>
+    </header>
 
     <!-- Page Content -->
     <main>
@@ -147,185 +183,128 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-100 pt-16 pb-8 border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row justify-between gap-12">
-                <!-- Brand Info -->
-                <div class="lg:w-1/3 space-y-4">
-                    <img class="h-14 w-auto" src="{{ asset('images/logo.png') }}" alt="Logo">
-                    <p class="text-gray-500 text-[16px] leading-relaxed max-w-xs">
-                        Solusi Instalasi dan Maintenance gedung pengalaman, serta komitmen terhadap keamanan dan
-                        kualitas.
-                    </p>
+    <footer class="bg-slate-50 dark:bg-slate-950 w-full border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-[1280px] mx-auto px-8 py-16 flex flex-col md:flex-row justify-between gap-12">
+            <div class="max-w-sm space-y-6">
+                <div class="text-lg font-bold text-[#0F4C81] dark:text-white uppercase tracking-tighter">
+                    Zona Instalasi Bandung
                 </div>
-
-                <!-- Navigation Grid -->
-                <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                    <!-- Layanan Utama -->
-                    <div>
-                        <h3 class="font-bold text-gray-900 mb-4">Layanan Utama</h3>
-                        <ul class="space-y-2 text-md text-gray-600">
-                            <li><a href="#" class="hover:text-primary transition-colors">Instalasi Listrik</a></li>
-                            <li><a href="#" class="hover:text-primary transition-colors">Panel Listrik</a></li>
-                            <li><a href="#" class="hover:text-primary transition-colors">Sistem Kelistrikan</a></li>
-                            <li><a href="#" class="hover:text-primary transition-colors">Maintenance</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Info Tambahan -->
-                    <div>
-                        <h3 class="font-bold text-gray-900 mb-4">Info Tambahan</h3>
-                        <ul class="space-y-2 text-md text-gray-600">
-                            <li><a href="#" class="hover:text-primary transition-colors">Tentang Kami</a></li>
-                            <li><a href="#" class="hover:text-primary transition-colors">Kebijakan Privasi</a></li>
-                            <li><a href="#" class="hover:text-primary transition-colors">Syarat & Ketentuan</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Kontak -->
-                    <div>
-                        <h3 class="font-bold text-gray-900 mb-4">Hubungi Kami</h3>
-                        <ul class="space-y-2 text-md text-gray-600">
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
-                                    </path>
-                                </svg>
-                                <span>+62 817-204-182</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                    </path>
-                                </svg>
-                                <span>zonainstalasi@gmail.com</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                                    </path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
-                                <span>
-                                    Jl. Batusari Komp. Buana Citra Ciwastra No. B22 RT 06 RW 01
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
+                <p class="font-['Manrope'] text-sm leading-relaxed text-slate-500">
+                    Solusi terpercaya untuk seluruh kebutuhan instalasi listrik dan maintenance gedung di Bandung dan
+                    sekitarnya. Presisi dalam eksekusi, terpercaya dalam hasil.
+                </p>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#0F4C81] hover:border-[#0F4C81] transition-all"
+                        href="#">
+                        <span class="material-symbols-outlined text-[20px]">public</span>
+                    </a>
+                    <a class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#0F4C81] hover:border-[#0F4C81] transition-all"
+                        href="#">
+                        <span class="material-symbols-outlined text-[20px]">mail</span>
+                    </a>
                 </div>
             </div>
-
-            <div class="pt-20 flex flex-col md:flex-row justify-center items-center text-center md:text-left">
-                <p class="text-gray-400 text-xs">© 2026 Zona Instalasi Bandung. All rights reserved.</p>
-                <div class="flex space-x-4 mt-4 md:mt-0">
-                    <!-- Social Icons can go here -->
+            <div class="grid grid-cols-2 gap-12 md:gap-24">
+                <div class="space-y-6">
+                    <h5 class="text-sm font-bold uppercase tracking-widest text-[#0F4C81]">Layanan</h5>
+                    <ul class="space-y-4">
+                        <li><a class="text-slate-500 hover:text-[#0F4C81] transition-all" href="#">Sistem Elektrikal</a>
+                        </li>
+                        <li><a class="text-slate-500 hover:text-[#0F4C81] transition-all" href="#">Instalasi Panel</a>
+                        </li>
+                        <li><a class="text-slate-500 hover:text-[#0F4C81] transition-all" href="#">Maintenance
+                                Bangunan</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-6">
+                    <h5 class="text-sm font-bold uppercase tracking-widest text-[#0F4C81]">Perusahaan</h5>
+                    <ul class="space-y-4">
+                        <li><a class="text-slate-500 hover:text-[#0F4C81] transition-all" href="#">Tentang Kami</a></li>
+                        <li><a class="text-slate-500 hover:text-[#0F4C81] transition-all" href="#">Syarat &amp;
+                                Ketentuan</a></li>
+                        <li><a class="text-slate-500 hover:text-[#0F4C81] transition-all" href="#">Kontak</a></li>
+                    </ul>
                 </div>
             </div>
-
+        </div>
+        <div class="max-w-[1280px] mx-auto px-8 py-8 border-t border-slate-200/50">
+            <p class="font-['Manrope'] text-sm leading-relaxed text-slate-400 text-center md:text-left">
+                © 2024 Zona Instalasi Bandung. Mitra Infrastruktur Terpercaya.
+            </p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+
+            // ── Active state logic (dipertahankan dari doc5) ──────────────────
             const navLinks = document.querySelectorAll('.nav-link');
-            const activeClasses = ['text-primary', 'font-bold'];
-            const inactiveClasses = ['text-gray-600', 'font-medium'];
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-            function setActive(targetLink) {
-                // Reset all
-                navLinks.forEach(link => {
-                    link.classList.remove(...activeClasses);
-                    link.classList.add(...inactiveClasses);
-                    // Ensure icon color also resets if any (though we use text-color inheritance)
+            function setActive(link) {
+                navLinks.forEach(l => {
+                    l.classList.remove('nav-active');
+                    l.style.color = '#475569';
+                    l.style.fontWeight = '600';
                 });
-
-                // Set active
-                if (targetLink) {
-                    targetLink.classList.remove(...inactiveClasses);
-                    targetLink.classList.add(...activeClasses);
+                if (link) {
+                    link.classList.add('nav-active');
+                    link.style.color = '#0F4C81';
+                    link.style.fontWeight = '800';
                 }
             }
 
-            // 1. Initial State based on URL
+            function setActiveMobile(link) {
+                mobileNavLinks.forEach(l => {
+                    l.style.color = '#475569';
+                    l.style.background = 'transparent';
+                    l.style.fontWeight = '600';
+                });
+                if (link) {
+                    link.style.color = '#0F4C81';
+                    link.style.background = 'rgba(15,76,129,0.07)';
+                    link.style.fontWeight = '800';
+                }
+            }
+
+            // Initial active based on URL
             const currentPath = window.location.pathname;
             const currentHash = window.location.hash;
 
             if (currentPath.includes('/layanan')) {
-                setActive(document.querySelector('a[data-target="services"]'));
-            } else if (currentPath === '/' || currentPath === '') {
-                // We are home. Check hash.
-                if (currentHash) {
-                    const hashTarget = currentHash.replace('#', '');
-                    const link = document.querySelector(`a[data-target="${hashTarget}"]`);
-                    if (link) setActive(link);
-                    else setActive(document.querySelector('a[data-target="home"]'));
-                } else {
-                    setActive(document.querySelector('a[data-target="home"]'));
-                }
-            }
-
-            // 2. Click Handling
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    setActive(link);
-                });
-            });
-            // Mobile Menu Toggle
-            const mobileBtn = document.getElementById('mobile-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            if (mobileBtn && mobileMenu) {
-                mobileBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    mobileMenu.classList.toggle('flex');
-                });
-            }
-
-            // Also attach active status logic to mobile nav links
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-            
-            function setActiveMobile(targetLink) {
-                mobileNavLinks.forEach(link => {
-                    link.classList.remove('text-primary', 'font-bold', 'bg-blue-50');
-                    link.classList.add('text-gray-600', 'font-medium');
-                });
-                if (targetLink) {
-                    targetLink.classList.remove('text-gray-600', 'font-medium');
-                    targetLink.classList.add('text-primary', 'font-bold', 'bg-blue-50');
-                }
-            }
-            
-            if (currentPath.includes('/layanan')) {
+                setActive(document.querySelector('a.nav-link[data-target="services"]'));
                 setActiveMobile(document.querySelector('a.mobile-nav-link[data-target="services"]'));
-            } else if (currentPath === '/' || currentPath === '') {
+            } else {
                 if (currentHash) {
-                    const hashTarget = currentHash.replace('#', '');
-                    const link = document.querySelector(`a.mobile-nav-link[data-target="${hashTarget}"]`);
-                    if (link) setActiveMobile(link);
+                    const t = currentHash.replace('#', '');
+                    setActive(document.querySelector(`a.nav-link[data-target="${t}"]`));
+                    setActiveMobile(document.querySelector(`a.mobile-nav-link[data-target="${t}"]`));
                 } else {
+                    setActive(document.querySelector('a.nav-link[data-target="home"]'));
                     setActiveMobile(document.querySelector('a.mobile-nav-link[data-target="home"]'));
                 }
             }
 
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    setActiveMobile(link);
-                    // Close menu on click
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
-                });
-            });
+            // Click handlers
+            navLinks.forEach(link => link.addEventListener('click', () => setActive(link)));
+            mobileNavLinks.forEach(link => link.addEventListener('click', () => {
+                setActiveMobile(link);
+                // Close mobile menu on click
+                mobileMenu.classList.remove('open');
+            }));
 
+            // ── Mobile menu toggle ────────────────────────────────────────────
+            const mobileBtn = document.getElementById('mobile-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                });
+            }
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 
