@@ -42,11 +42,6 @@
         <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
 
             {{-- Section header (sama dengan home) --}}
-            <div style="text-align:center;margin-bottom:64px;">
-                <span style="font-size:12px;line-height:1;letter-spacing:0.1em;font-weight:700;text-transform:uppercase;color:#0058bd;">Expertise</span>
-                <h2 style="font-size:36px;line-height:1.2;letter-spacing:-0.01em;font-weight:700;color:#0b1c30;margin-top:8px;">Layanan Utama Kami</h2>
-                <div style="width:80px;height:4px;background:#0058bd;margin:16px auto 0;border-radius:9999px;"></div>
-            </div>
 
             {{-- Grid cards --}}
             <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;">
