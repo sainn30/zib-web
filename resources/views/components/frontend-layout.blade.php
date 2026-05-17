@@ -183,10 +183,10 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-50 dark:bg-slate-950 w-full border-t border-slate-200 dark:border-slate-800">
+    <footer class="bg-slate-50 w-full border-t border-slate-200">
         <div class="max-w-[1280px] mx-auto px-8 py-16 flex flex-col md:flex-row justify-between gap-12">
             <div class="max-w-sm space-y-6">
-                <div class="text-lg font-bold text-[#0F4C81] dark:text-white uppercase tracking-tighter">
+                <div class="text-lg font-bold text-[#0F4C81] uppercase tracking-tighter">
                     Zona Instalasi Bandung
                 </div>
                 <p class="font-['Manrope'] text-sm leading-relaxed text-slate-500">
