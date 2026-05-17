@@ -77,6 +77,9 @@
     }
     .svc-card:hover .svc-icon  { background: #0F4C81; }
     .svc-card:hover .svc-title { color: #0F4C81; }
+    .svc-card:hover .svg-wrapper { }
+    .svc-icon { transition: 0.3s; }
+    .svg-wrapper { color: #0F4C81; transition: color 0.3s; }
 
     /* ---- Gallery hover ---- */
     .gal-img { transition: transform 0.7s; }
@@ -198,7 +201,7 @@
                         }
                     @endphp
                     @if($svgContent)
-                        <div style="width:32px;height:32px;color:#0F4C81;">{!! $svgContent !!}</div>
+                        <div class="svg-wrapper" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;">{!! $svgContent !!}</div>
                     @else
                         <img src="{{ asset('icon/' . $service->icon) }}" style="width:32px;height:32px;object-fit:contain;" alt="">
                     @endif
@@ -218,7 +221,7 @@
             @endforeach
         </div>
 
-        {{-- Tombol lihat semua (dari doc2) --}}
+        {{-- Tombol lihat semua --}}
         <div style="text-align:center;margin-top:48px;">
             <a href="{{ route('services') }}"
                 style="display:inline-flex;align-items:center;padding:12px 32px;background:#1470e8;color:#fff;font-weight:600;border-radius:8px;text-decoration:none;box-shadow:0 8px 20px rgba(20,112,232,0.2);transition:background 0.2s;"
@@ -238,14 +241,14 @@
     <div class="cont">
         <div class="why-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
 
-            {{-- IMAGE — kiri (order-2 di doc1) --}}
+            {{-- IMAGE — kiri --}}
             <div style="position:relative;">
                 <div style="border-radius:16px;overflow:hidden;aspect-ratio:4/5;">
                     <img alt="Why Choose Us"
                         style="width:100%;height:100%;object-fit:cover;"
                         src="{{ asset('images/layanan.png') }}"/>
                 </div>
-                {{-- ISO badge floating (sama doc1) --}}
+                {{-- ISO badge floating --}}
                 <div style="position:absolute;top:-24px;right:-24px;background:#fff;padding:16px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.1);border:1px solid #f1f5f9;">
                     <div style="display:flex;align-items:center;gap:12px;">
                         <div style="background:#dcfce7;padding:8px;border-radius:9999px;">
@@ -256,7 +259,7 @@
                 </div>
             </div>
 
-            {{-- TEXT — kanan (order-1 di doc1) --}}
+            {{-- TEXT — kanan --}}
             <div style="display:flex;flex-direction:column;gap:40px;">
                 <div>
                     <span class="t-label-caps c-secondary">Keunggulan</span>
@@ -264,7 +267,6 @@
                 </div>
 
                 <div style="display:flex;flex-direction:column;gap:32px;">
-                    {{-- Item --}}
                     @php
                         $whys = [
                             ['icon'=>'automation','title'=>'Beroperasi secara Otomatis',      'desc'=>'Sistem kami dirancang untuk kemudahan operasional dengan teknologi otomasi terbaru yang meminimalisir kesalahan manusia.'],
@@ -294,7 +296,6 @@
 {{-- ABOUT US                                                          --}}
 {{-- ================================================================ --}}
 <section class="sec-pad bg-on-surface" id="tentang" style="color:#fff;position:relative;overflow:hidden;">
-    {{-- Decorative circle (sama doc1) --}}
     <div style="position:absolute;top:0;right:0;width:33%;height:100%;opacity:0.1;pointer-events:none;">
         <svg style="height:100%;width:100%;" viewBox="0 0 100 100">
             <circle cx="100" cy="50" fill="currentColor" r="50"></circle>
@@ -319,7 +320,6 @@
                     melalui layanan maintenance yang proaktif dan responsif. Kami percaya bahwa keamanan gedung dimulai
                     dari instalasi yang tepat.
                 </p>
-                {{-- Stats (sama doc1) --}}
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;padding-top:32px;">
                     <div style="border-left:2px solid #0058bd;padding-left:24px;">
                         <p class="c-secondary-fixed" style="font-size:30px;font-weight:700;">500+</p>
@@ -365,14 +365,12 @@
 
         <div class="marquee-wrap">
             <div class="marquee-track">
-                {{-- Set 1 --}}
                 @foreach($logos as $logo)
                     <img style="height:80px;width:auto;object-fit:contain;filter:grayscale(100%);opacity:0.5;transition:all 0.3s;flex-shrink:0;"
                         onmouseenter="this.style.filter='grayscale(0%)';this.style.opacity='1';"
                         onmouseleave="this.style.filter='grayscale(100%)';this.style.opacity='0.5';"
                         src="{{ asset('images/logo/' . $logo['src']) }}" alt="{{ $logo['alt'] }}">
                 @endforeach
-                {{-- Set 2 duplikat agar seamless --}}
                 @foreach($logos as $logo)
                     <img style="height:80px;width:auto;object-fit:contain;filter:grayscale(100%);opacity:0.5;transition:all 0.3s;flex-shrink:0;"
                         onmouseenter="this.style.filter='grayscale(0%)';this.style.opacity='1';"
@@ -385,12 +383,11 @@
 </section>
 
 {{-- ================================================================ --}}
-{{-- GALLERY / PORTFOLIO — Swiper + style doc1                        --}}
+{{-- GALLERY / PORTFOLIO — Swiper                                     --}}
 {{-- ================================================================ --}}
 <section class="sec-pad" id="portfolio">
     <div class="cont">
 
-        {{-- Header (sama doc1) --}}
         <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;flex-wrap:wrap;gap:24px;">
             <div style="display:flex;flex-direction:column;gap:16px;">
                 <span class="t-label-caps c-secondary">Showcase</span>
@@ -404,8 +401,7 @@
             </a>
         </div>
 
-<<<<<<< HEAD
-        {{-- Swiper (doc2 logic + doc1 visual) --}}
+        {{-- Swiper --}}
         <div style="position:relative;padding:0 48px;">
             <div class="swiper mySwiper" style="width:100%;">
                 <div class="swiper-wrapper" style="padding-bottom:48px;">
@@ -419,28 +415,6 @@
                                     alt="{{ $portfolio->title }}">
                                 <div class="gal-overlay">
                                     <h4 style="color:#fff;font-size:18px;font-weight:700;">{{ $portfolio->title }}</h4>
-=======
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                @foreach($services as $service)
-                    <div
-                        class="bg-white rounded-xl p-8 border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-
-                        {{-- Wrapper Ikon dengan efek hover --}}
-                        <div
-                            class="w-12 h-12 bg-blue-100 text-[#1F75FE] rounded-lg flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-[#1F75FE] group-hover:text-white">
-                            @php
-                                $iconPath = public_path('icon/' . $service->icon);
-                                $svgContent = '';
-                                if (file_exists($iconPath)) {
-                                    $svgContent = file_get_contents($iconPath);
-                                    $svgContent = str_replace(['#000', '#000000', 'black'], 'currentColor', $svgContent);
-                                }
-                            @endphp
-
-                            @if($svgContent)
-                                <div class="w-6 h-6 [&>svg]:w-full [&>svg]:h-full">
-                                    {!! $svgContent !!}
->>>>>>> efc0a24d66650470105d90bc9ae544a520a272b1
                                 </div>
                             @else
                                 <div style="width:100%;height:100%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;color:#94a3b8;">No Image</div>
@@ -492,7 +466,7 @@
 </section>
 
 {{-- ================================================================ --}}
-{{-- CTA SECTION (sama persis doc1)                                   --}}
+{{-- CTA SECTION                                                       --}}
 {{-- ================================================================ --}}
 <section class="sec-pad">
     <div class="cont">
