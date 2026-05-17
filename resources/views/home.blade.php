@@ -237,7 +237,7 @@
 {{-- ================================================================ --}}
 {{-- WHY CHOOSE US                                                     --}}
 {{-- ================================================================ --}}
-<section class="sec-pad">
+<section class="sec-pad" id="keunggulan">
     <div class="cont">
         <div class="why-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
 
@@ -346,7 +346,7 @@
 {{-- ================================================================ --}}
 {{-- PARTNERS / CLIENTS — marquee                                      --}}
 {{-- ================================================================ --}}
-<section style="padding:80px 0;border-bottom:1px solid #e2e8f0;overflow:hidden;">
+<section style="padding:80px 0;border-bottom:1px solid #e2e8f0;overflow:hidden;" id="klien">
     <div class="cont">
         <p class="t-label-caps c-on-surface-variant" style="text-align:center;margin-bottom:48px;">Klien &amp; Mitra Kami</p>
 
@@ -385,7 +385,7 @@
 {{-- ================================================================ --}}
 {{-- GALLERY / PORTFOLIO — Swiper                                     --}}
 {{-- ================================================================ --}}
-<section class="sec-pad" id="portfolio">
+<section class="sec-pad" id="galeri">
     <div class="cont">
 
         <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;flex-wrap:wrap;gap:24px;">

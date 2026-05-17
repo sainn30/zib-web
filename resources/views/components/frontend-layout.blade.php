@@ -100,19 +100,19 @@
                     onmouseleave="if(!this.classList.contains('nav-active'))this.style.color='#475569';">
                     Keunggulan
                 </a>
-                <a href="{{ route('home') }}#about" class="nav-link" data-target="about"
+                <a href="{{ route('home') }}#tentang" class="nav-link" data-target="tentang"
                     style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.05em;color:#475569;text-decoration:none;transition:color 0.2s;"
                     onmouseenter="this.style.color='#0F4C81';"
                     onmouseleave="if(!this.classList.contains('nav-active'))this.style.color='#475569';">
                     Tentang
                 </a>
-                <a href="{{ route('home') }}#clients" class="nav-link" data-target="clients"
+                <a href="{{ route('home') }}#klien" class="nav-link" data-target="klien"
                     style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.05em;color:#475569;text-decoration:none;transition:color 0.2s;"
                     onmouseenter="this.style.color='#0F4C81';"
                     onmouseleave="if(!this.classList.contains('nav-active'))this.style.color='#475569';">
                     Klien
                 </a>
-                <a href="{{ route('home') }}#gallery" class="nav-link" data-target="gallery"
+                <a href="{{ route('home') }}#galeri" class="nav-link" data-target="galeri"
                     style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.05em;color:#475569;text-decoration:none;transition:color 0.2s;"
                     onmouseenter="this.style.color='#0F4C81';"
                     onmouseleave="if(!this.classList.contains('nav-active'))this.style.color='#475569';">
@@ -158,15 +158,15 @@
                 style="display:block;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:600;color:#475569;padding:10px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s;">
                 Keunggulan
             </a>
-            <a href="{{ route('home') }}#about" class="mobile-nav-link" data-target="about"
+            <a href="{{ route('home') }}#tentang" class="mobile-nav-link" data-target="tentang"
                 style="display:block;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:600;color:#475569;padding:10px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s;">
                 Tentang
             </a>
-            <a href="{{ route('home') }}#clients" class="mobile-nav-link" data-target="clients"
+            <a href="{{ route('home') }}#klien" class="mobile-nav-link" data-target="klien"
                 style="display:block;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:600;color:#475569;padding:10px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s;">
                 Klien
             </a>
-            <a href="{{ route('home') }}#gallery" class="mobile-nav-link" data-target="gallery"
+            <a href="{{ route('home') }}#galeri" class="mobile-nav-link" data-target="galeri"
                 style="display:block;font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:600;color:#475569;padding:10px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s;">
                 Galeri
             </a>
