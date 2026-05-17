@@ -404,6 +404,7 @@
             </a>
         </div>
 
+<<<<<<< HEAD
         {{-- Swiper (doc2 logic + doc1 visual) --}}
         <div style="position:relative;padding:0 48px;">
             <div class="swiper mySwiper" style="width:100%;">
@@ -418,6 +419,28 @@
                                     alt="{{ $portfolio->title }}">
                                 <div class="gal-overlay">
                                     <h4 style="color:#fff;font-size:18px;font-weight:700;">{{ $portfolio->title }}</h4>
+=======
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                @foreach($services as $service)
+                    <div
+                        class="bg-white rounded-xl p-8 border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+
+                        {{-- Wrapper Ikon dengan efek hover --}}
+                        <div
+                            class="w-12 h-12 bg-blue-100 text-[#1F75FE] rounded-lg flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-[#1F75FE] group-hover:text-white">
+                            @php
+                                $iconPath = public_path('icon/' . $service->icon);
+                                $svgContent = '';
+                                if (file_exists($iconPath)) {
+                                    $svgContent = file_get_contents($iconPath);
+                                    $svgContent = str_replace(['#000', '#000000', 'black'], 'currentColor', $svgContent);
+                                }
+                            @endphp
+
+                            @if($svgContent)
+                                <div class="w-6 h-6 [&>svg]:w-full [&>svg]:h-full">
+                                    {!! $svgContent !!}
+>>>>>>> efc0a24d66650470105d90bc9ae544a520a272b1
                                 </div>
                             @else
                                 <div style="width:100%;height:100%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;color:#94a3b8;">No Image</div>

@@ -34,7 +34,7 @@
             </div>
 
             <div
-                class="bg-white border rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-blue-600">
+                class="bg-white border rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
                 <div class="flex items-center space-x-3 mb-4">
                     <div class="p-2.5 bg-blue-100 rounded-full text-blue-600">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

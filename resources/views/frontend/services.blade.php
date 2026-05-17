@@ -11,40 +11,15 @@
     </div>
 
     <!-- Services Grid -->
-    <section class="bg-surf-low" style="padding-top:120px;padding-bottom:120px;">
-
-        <style>
-            .bg-surf-low { background-color: #eff4ff; }
-
-            /* Card sama persis dengan home page */
-            .svc-card {
-                background: #fff;
-                padding: 32px;
-                border-radius: 16px;
-                box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-                transition: box-shadow 0.3s, transform 0.3s;
-            }
-            .svc-card:hover {
-                box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-                transform: translateY(-8px);
-            }
-            .svc-card:hover .svc-icon  { background: #0F4C81; }
-            .svc-card:hover .svc-title { color: #0F4C81; }
-            .svc-icon { transition: background 0.3s; }
-            .svc-title { transition: color 0.3s; }
-        </style>
-
-        <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
-
-
-            {{-- Grid cards --}}
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;">
-                @foreach($services as $service)
-                <div class="svc-card">
-
-                    {{-- Icon wrapper --}}
-                    <div class="svc-icon"
-                        style="width:64px;height:64px;background:rgba(15,76,129,0.05);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;">
+    <div class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @foreach($services as $service)
+                {{-- Card dengan transisi shadow --}}
+                <div class="bg-white rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    
+                    {{-- Wrapper Ikon: berubah biru solid saat card di-hover --}}
+                    <div class="w-12 h-12 bg-blue-100 text-[#1F75FE] rounded-lg flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-[#1F75FE] group-hover:text-white">
                         @php
                             $iconPath = public_path('icon/' . $service->icon);
                             $svgContent = '';
